@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Calc/Ansh</title>
+  <style>
+  * {
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: green;
+}
+#box {
+  border: 2px solid black;
+  height: 300px;
+  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: lightgray;
+  border-radius: 20px;
+  
+}
+.btns {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin: 5px;
+  border: 0px;
+  font-size: 20px;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.5);
+}
+.btns:active {
+  background-color: black;
+  opacity: 0.2;
+}
+textarea {
+  width: 200px;
+  height: 50px;
+  background-color: darkslategray;
+  opacity: 0.6;
+  border-top-right-radius: 18px;
+  border-top-left-radius: 18px;
+  font-size: 30px;
+  text-align: right;
+  color: white;
+  white-space: nowrap;
+  padding-inline: 4px;
+  resize: none;
+  
+}
+p {
+  position: relative;
+  width: 145px;
+  height: 40px;
+  opacity: 0.5;
+  text-align: center;
+  line-height: 50px;;
+  font-size: 12px;
+}
+.btns-color {
+  background-color: chartreuse;
+}
+  </style>
+</head>
+<body>
+    <div id="box">
+      <textarea id="textarea" placeholder="0" readonly></textarea>
+      <button class="btns btns-color" onclick="clearScreen();">C</button>
+      <button class="btns" onclick="display(9);">9</button>
+      <button class="btns" onclick="display(8);">8</button>
+      <button class="btns" onclick="display(7);">7</button>
+      <button class="btns btns-color" onclick="display('+');">+</button>
+      <button class="btns" onclick="display(6);">6</button>
+      <button class="btns" onclick="display(5);">5</button>
+      <button class="btns" onclick="display(4);">4</button>
+      <button class="btns btns-color" onclick="display('-');">-</button>
+      <button class="btns" onclick="display(3);">3</button>
+      <button class="btns" onclick="display(2);">2</button>
+      <button class="btns" onclick="display(1);">1</button>
+      <button class="btns btns-color" onclick="display('*');">×</button>
+      <button class="btns" onclick="display('.');">.</button>
+      <button class="btns" onclick="display(0);">0</button>
+      <button class="btns" onclick="calculate();">=</button>
+      <button class="btns btns-color" onclick="display('/');">÷</button>
+      <p><b>Project By Ansh Verma
+      </b></p>
+    </div>
+  <script>
+  let textarea = document.querySelector("textarea");
+function display(value) {
+    textarea.value += value;
+    textarea.focus();
+}
+function clearScreen() {
+    textarea.value = "";
+}
+function calculate() {
+    try {
+        textarea.value = eval(textarea.value);
+    } catch(error) {
+        textarea.value = "error";
+    }
+}
+  </script>
+</body>
+</html>
+
